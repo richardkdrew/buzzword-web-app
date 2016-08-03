@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Buzzword of the day...</title>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+</head>
+<body>	
+	<container>
+		<wrapper>
+			<header>
+				<h1>buzzword</h1>
+					<h2>/ˈbʌzwəːd/</h2>
+					<section class="noun1">noun</section>
+					<section class="informal">informal</section>
+					<br/>
+					<section class="noun2">noun:</section>
+					<section class="buzz-word">buzz-word</section>
+					
+					<section class="definition">
+						a word or phrase, often an item of jargon, that is fashionable at a particular time or in a particular context.
+					</section>												
+			</header>
+			<hr class="separator"/>	
+			<content>
+				<form action="/" method="post">
+					<buttons>
+						<button class="button button1" name="category" value="technology">Technology</button>
+						<button class="button button2" name="category" value="education">Education</button>
+						<button class="button button3" name="category" value="politics">Politics</button>
+						<button class="button button4" name="category" value="business">Business</button>
+						<button class="button button5" name="category" value="general">General</button>
+					</buttons>
+				</form>
+				<span class="buzzword">
+					&#8220;the latest buzzword in {{.Category}} is &#8216;{{.Buzzword}}&#8217; &#8221;
+				</span>
+			</content>				
+			<push>&nbsp;</push>
+		</wrapper>
+		<footer>
+			<span class="api">Buzzword supplied by: {{.APIID}}</span>
+		</footer>
+	</container>
+</body>
+</html>

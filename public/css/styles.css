@@ -1,0 +1,197 @@
+
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0em;
+	margin: 0em;
+}
+
+body {
+
+    font-family: Arial, Helvetica, Geneva, sans-serif;
+
+    /*background-color: #f5f5f5;*/
+    background-color: rgb(230, 221, 222)
+}
+
+container {
+    display: block;
+    height: 100%;
+    width: 75%;
+    max-width: 990px;
+    margin: 0 auto;
+
+    background-color: white;
+}
+
+header {    
+    display: block;
+
+    width: 60%;
+    margin: 0 auto;
+
+    height: 12em;
+    padding: 1em;
+
+    /*background-color: blue;*/
+}
+
+wrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto -4em;
+
+    /*background-color: red;*/
+}
+
+content {
+    display: block;
+    padding: 2em 1em;
+
+    color: grey;
+    text-align: center;
+    font-size: xx-large;
+
+    /*background-color: yellow;   */
+}
+
+footer, push {
+    display: block;
+    height: 4em;
+}
+
+/*footer {
+     background-color: brown;
+}*/
+
+span.api {
+    display: block;
+    color: silver;
+    text-align: center;
+    font-size: x-large;   
+    font-weight: bold;
+
+    /*background-color: green;*/
+}
+
+buttons {
+    display: block;
+    text-align: center;
+    padding: 1em 0 2em;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: white;
+    color: darkslategrey;
+}
+
+.button1 {
+    background-color: lightcoral;
+    border: 2px solid lightcoral;
+}
+
+.button1:hover {
+    border: 2px solid lightcoral;
+}
+
+.button2 {
+    background-color: dodgerblue;
+    border: 2px solid dodgerblue;
+}
+
+.button2:hover {
+    border: 2px solid dodgerblue;
+}
+
+.button3 {
+    background-color: orange;
+    border: 2px solid orange;
+}
+
+.button3:hover {
+    border: 2px solid orange;
+}
+
+.button4 {
+    background-color: forestgreen;
+    border: 2px solid forestgreen;
+}
+
+.button4:hover {
+    border: 2px solid forestgreen;
+}
+
+.button5 {
+    background-color: mediumpurple;
+    border: 2px solid mediumpurple;
+}
+
+.button5:hover {
+    border: 2px solid mediumpurple;
+}
+
+h1 {
+    font-family: arial,sans-serif-light,sans-serif;
+    font-size: xx-large;
+    font-weight: lighter;
+}
+
+h2 {
+    color: #222;
+    margin: .5em 0;
+}
+
+hr.separator {
+    margin-top: 5em;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+section.scrollText {
+    margin: 7em 8.5em;
+}
+
+section.noun1, section.informal, section.noun2, section.buzz-word {
+    font-size: small;
+    display: inline-block;
+}
+
+section.noun1, section.informal {
+    font-style: italic;
+}
+
+section.informal, section.noun2, section.buzz-word {
+    color: #878787;
+}
+
+section.buzz-word {
+    font-weight: bold;
+}
+
+section.definition {
+    display: block;
+    margin: 1em;
+    word-wrap: break-word;
+    padding-bottom: 20px;
+}
+
+span.buzzword {
+    font-family: 'Roboto Slab', serif;
+}

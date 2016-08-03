@@ -1,0 +1,9 @@
+.gitignore
+.git/
+dockerTask.ps1
+dockerTask.sh
+Dockerfile
+Dockerfile.*
+LICENSE
+README.md
+buzzword/
