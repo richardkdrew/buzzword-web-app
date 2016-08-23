@@ -58,6 +58,7 @@ jobs:
       trigger: true
     - get: go-image
       params: {save: true}
+    - get: version
   - task: build
     config:
       platform: linux
@@ -70,6 +71,7 @@ jobs:
 
       inputs:
        - name: buzzword-web
+       - name: version
 
       outputs:
        - name: app
@@ -80,6 +82,13 @@ jobs:
         - -c
         - |
           set -e -x
+
+          # setting local version label
+          version="$(cat version/number)"
+          if [ -z "$version" ]; then
+            echo "missing version number"
+            exit 1
+          fi
           
           workingFolder=$PWD/buzzword-web
           output=$PWD/app
@@ -90,13 +99,12 @@ jobs:
 
           go build buzzword-web.go
 
-          cp $workingFolder/buzzword-web $workingFolder/Dockerfile $output
-  - aggregate:  
-    - put: version
-      params: {bump: patch}
-    - put: buzzword-web-image
-      params: 
-        build: app
-        load_base: go-image
-        tag: version/number
-        tag_as_latest: true    
+          cp $workingFolder/buzzword-web $workingFolder/Dockerfile $output      
+  - put: buzzword-web-image
+    params: 
+      build: app
+      load_base: go-image
+      tag: version/number
+      tag_as_latest: true    
+  - put: version
+    params: {bump: patch}
