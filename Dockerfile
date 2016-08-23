@@ -1,16 +1,13 @@
-# DOCKER VERSION 1.12.0
-FROM golang:1.6.2-alpine
+FROM scratch
 
 MAINTAINER Richard Drew <richardkdrew@gmail.com>
 
-# set the start/working directory
-WORKDIR /app
-
 # copy the files into place
-COPY . /app
+ADD buzzword-web /buzzword-web
 
 # expose the hosting port
-EXPOSE 8080/tcp
+ENV HOST_PORT 8080
+EXPOSE 8080
 
 # set the run command
-ENTRYPOINT ["./main"]
+CMD ["/buzzword-web"]

@@ -1,0 +1,68 @@
+resources:
+- name: buzzword-web
+  type: git
+  source:
+    uri: {{github-uri}}
+    branch: master
+    private_key: {{github-private-key}}
+
+- name: buzzword-web-image
+  type: docker-image
+  source: 
+    repository: richardkdrew/buzzword-web
+    username: {{dockerhub-user}}
+    password: {{dockerhub-password}}
+
+- name: go-image
+  type: docker-image
+  source:
+    repository: golang
+    tag: '1.6.2-alpine'
+
+jobs:
+- name: build
+  public: true
+  plan:
+  - aggregate:
+    - get: buzzword-web
+      trigger: true
+    - get: go-image
+      params: {save: true}
+  - task: build
+    config:
+      platform: linux
+
+      image_resource:
+        type: docker-image
+        source:
+          repository: golang
+          version: 1.6.2-alpine
+
+      inputs:
+       - name: buzzword-web
+
+      outputs:
+       - name: app
+
+      run:
+        path: bash
+        args:
+        - -c
+        - |
+          set -e -x
+          
+          workingFolder=$PWD/buzzword-web
+          output=$PWD/app
+
+          export GOOS=linux GOARCH=amd64
+
+          cd $workingFolder
+
+          go build hello-from.go
+
+          cp $workingFolder/buzzword-web $workingFolder/Dockerfile $output
+  - put: buzzword-web-image
+    params: 
+      build: app
+      load_base: go-image
+      tag_as_latest: true    
