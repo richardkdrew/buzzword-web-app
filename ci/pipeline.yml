@@ -50,8 +50,21 @@ jobs:
   - put: version
     params: {file: version/number}
 
+- name: patch
+  public: true
+  serial: true
+  serial_groups: [version]
+  plan:
+  - get: version
+    passed: [build]
+    trigger: true
+  - put: version
+    params: {bump: patch}
+
 - name: build
   public: true
+  serial: true
+  serial_groups: [version]
   plan:
   - aggregate:
     - get: buzzword-web
@@ -106,5 +119,3 @@ jobs:
       load_base: go-image
       tag: version/number
       tag_as_latest: true    
-  - put: version
-    params: {bump: patch}
